@@ -16,7 +16,7 @@ const getProduct = (productId) => {
     fetchProduct();
   }, [fetchProduct]);
 
-  return product;
+  return {product};
 };
 
 export default getProduct;

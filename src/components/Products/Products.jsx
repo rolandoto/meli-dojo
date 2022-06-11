@@ -1,17 +1,15 @@
 import React, { useContext } from 'react';
 import { connect } from 'react-redux';
-import actions from '../actions';
 import './Products.styl';
-import Product from './Product';
-import useRecommended from '../hooks/useRecommended';
-import { ProductContext } from '../providers/ProductProvider';
+
+import ProductProvider  from '../../providers/ProductProvider';
+import Product from '../Product/Product';
 
 const Products = (props) => {
   let products;
   let isRecommended;
-  const { paginator, offset } = useContext(ProductContext);
+  const { paginator, offset } = useContext(ProductProvider);
   if (props.products.length === 0) {
-    products = useRecommended();
     isRecommended = true;
 
   } else {
@@ -30,7 +28,7 @@ const Products = (props) => {
         {isRecommended && <h2>Recomendados</h2> }
       </div>
       <div className="Products-items">
-        {products.map(product => (
+        {products?.map(product => (
           <Product
             key={product.id}
             product={product}
@@ -73,8 +71,5 @@ const Products = (props) => {
   );
 };
 
-const mapDispatchToProps = {
-  addToCart: actions.addToCart,
-};
 
-export default connect(null, mapDispatchToProps)(Products);
+export default (Products);

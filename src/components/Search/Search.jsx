@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { connect } from 'react-redux';
+
+import  ProductProvider from '../../providers/ProductProvider';
 import Products from '../Products/Products';
-import { ProductContext } from '../../providers/ProductProvider';
 import "./Search.styl";
 
 const Search = (props) => {
   const [search, setSearch] = useState("");
-  const { products, getProducts } = useContext(ProductContext);
+  const { products, getProducts } = useContext(ProductProvider);
 
   const handleChange = (event, updaterFunction) => {
     const { value } = event.target;

@@ -1,11 +1,11 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
 import { Link } from 'react-router-dom';
-import getUser from '../hooks/getUsers';
+
 
 const Product = ({ product, handleAddToCart }) => {
 
-  const userNickname = getUser(product);
+  
 
   const isFreeShipping = () => {
     let freeShipping;
@@ -31,11 +31,10 @@ const Product = ({ product, handleAddToCart }) => {
         <p>
           Seller: &nbsp;
           <span>
-            {userNickname}
           </span>
         </p>
       </div>
-      <button type="button" onClick={handleAddToCart(product)}>Comprar</button>
+      <button type="button" onClick={ handleAddToCart(product)}>Comprar</button>
     </div>
   );
 };

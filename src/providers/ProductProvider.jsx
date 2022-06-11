@@ -1,8 +1,8 @@
 import React, { createContext } from 'react';
 
-export const ProductContext = createContext({ products: [] });
+const ProductContext = createContext({ products: [] });
 
-class ProductProvider extends React.Component {
+export class ProductProvider extends React.Component {
   state = {
     offset: 0,
     endPoint: 'https://api.mercadolibre.com/sites/MCO/search?q=',
@@ -51,4 +51,4 @@ class ProductProvider extends React.Component {
   }
 }
 
-export default ProductProvider;
+export default ProductContext

@@ -1,4 +1,4 @@
-import {Home, NotFound} from '../pages';
+import { Home, NotFound} from '../pages';
 
 export const routes = [
     {
